@@ -1,0 +1,28 @@
+{
+  "endOfLine": "lf",
+  "singleQuote": true,
+  "parser": "typescript",
+  "trailingComma": "none",
+  "arrowParens": "avoid",
+  "semi": true,
+  "overrides": [
+    {
+      "files": "*.scss",
+      "options": {
+        "parser": "scss"
+      }
+    },
+    {
+      "files": "*.html",
+      "options": {
+        "parser": "html"
+      }
+    },
+    {
+      "files": ".*rc",
+      "options": {
+        "parser": "json"
+      }
+    }
+  ]
+}
