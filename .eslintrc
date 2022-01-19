@@ -3,8 +3,7 @@
   "extends": [
     "plugin:@typescript-eslint/recommended",
     "airbnb",
-    "prettier",
-    "plugin:@next/next/recommended"
+    "prettier"
   ],
   "plugins": ["@typescript-eslint", "react", "prettier", "react-hooks"],
   "parserOptions": {
@@ -80,8 +79,7 @@
       "error",
       { "functions": false, "classes": false, "variables": true }
     ],
-    "lines-between-class-members": 0,
-    "@next/next/no-img-element": "off"
+    "lines-between-class-members": 0
   },
   "settings": {
     "import/resolver": {

@@ -1,12 +1,14 @@
-import "./App.scss";
-import "./styles/_colors.scss";
+import { BrowserRouter as Router, Navigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router';
+import Search from './Pages/Search';
 
-function App() {
-  return (
-    <div className="App">
-      <p>Hello</p>
-    </div>
-  );
-}
+const App = () => (
+  <Router>
+    <Routes>
+      <Route path="/search" element={<Search />} />
+      <Route path="" element={<Navigate to="/search" />} />
+    </Routes>
+  </Router>
+);
 
 export default App;
