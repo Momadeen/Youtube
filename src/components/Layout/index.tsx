@@ -10,7 +10,7 @@ const Layout = ({ children }: Props) => (
   <div className="layout">
     <Navbar />
     <div className="layout__container">
-      <div className="container">{children}</div>
+      <div className="screens">{children}</div>
     </div>
   </div>
 );

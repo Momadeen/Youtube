@@ -6,10 +6,10 @@ const InputSearch = () => {
   const [searchValue, setSearchValue] = useState('');
   const onClearInput = useCallback(() => setSearchValue(''), []);
   return (
-    <div className="searchControllers">
-      <div className="searchControllers__inputContainer">
+    <div className="search-controllers">
+      <div className="search-controllers__input-container">
         <input
-          className="searchControllers__input"
+          className="search-controllers__input"
           type="text"
           placeholder="Search"
           onChange={e => setSearchValue(e.target.value)}
@@ -18,11 +18,11 @@ const InputSearch = () => {
         {searchValue ? (
           <AiOutlineClose
             onClick={onClearInput}
-            className="searchControllers__closeicon"
+            className="search-controllers__close-icon"
           />
         ) : null}
       </div>
-      <div className="searchControllers__searchicon">
+      <div className="search-controllers__search-icon">
         <AiOutlineSearch />
       </div>
     </div>

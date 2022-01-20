@@ -1,8 +1,12 @@
 // import { useSearchParams } from 'react-router-dom';
 
+import VideoCard from '../../components/VideoCard';
+
 const Search = () => (
   <div>
-    <div>hello</div>
+    <div className="screens">
+      <VideoCard />
+    </div>
   </div>
 );
 

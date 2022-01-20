@@ -1,12 +1,12 @@
 @import '../../styles/colors';
 
-.searchControllers {
+.search-controllers {
   display: flex;
   align-items: center;
-  .searchControllers__inputContainer {
+  .search-controllers__input-container {
     position: relative;
     flex-grow: 0.6;
-    .searchControllers__input {
+    .search-controllers__input {
       border-top-left-radius: 3px;
       border-bottom-left-radius: 3px;
       border: $border;
@@ -17,7 +17,7 @@
         border: $borderActive;
       }
     }
-    .searchControllers__closeicon {
+    .search-controllers__close-icon {
       position: absolute;
       right: 4%;
       top: 25%;
@@ -25,7 +25,7 @@
   }
 }
 
-.searchControllers__searchicon {
+.search-controllers__search-icon {
   display: flex;
   justify-content: center;
   align-items: center;
