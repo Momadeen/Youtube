@@ -1,0 +1,24 @@
+@import '../../styles/colors';
+
+.navbar {
+  width: 100%;
+  box-shadow: $shadow;
+  padding: 10px 0;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  background-color: $main-bg;
+
+  @media screen and (max-width: 500px) {
+    background-color: $primary-color;
+  }
+
+  .navbar__container {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    align-items: center;
+    @media screen and (min-width: 500px) {
+      gap: 5%;
+    }
+  }
+}

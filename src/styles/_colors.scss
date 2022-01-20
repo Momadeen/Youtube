@@ -1,6 +1,12 @@
-$primary-color: #FF0000;
+$primary-color: #ff0000;
 $main-text: #282828;
 $sec-text: #555;
 $main-bg: #fff;
-$gray: #808080;
+$gray100: #808080;
+$gray200: #e4e4e4;
+$gray300: #f2f2f2;
 
+$shadow: 1px 3px 6px 1px rgba(0, 0, 0, 0.05);
+
+$border: 1px solid $gray200;
+$borderActive: 1px solid $gray100;

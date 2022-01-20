@@ -1,7 +1,10 @@
-// eslint-disable-next-line import/no-unresolved
 // import { useSearchParams } from 'react-router-dom';
 
-const Search = () => <div>Hello from Search Page</div>;
+const Search = () => (
+  <div>
+    <div>hello</div>
+  </div>
+);
 
 export default Search;
 

@@ -1,0 +1,51 @@
+@import '../../styles/colors';
+
+.searchControllers {
+  display: flex;
+  align-items: center;
+  .searchControllers__inputContainer {
+    position: relative;
+    flex-grow: 0.6;
+    .searchControllers__input {
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+      border: $border;
+      padding: 10px 15px;
+      width: 100%;
+      outline: none;
+      &:focus {
+        border: $borderActive;
+      }
+    }
+    .searchControllers__closeicon {
+      position: absolute;
+      right: 4%;
+      top: 25%;
+    }
+  }
+}
+
+.searchControllers__searchicon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $gray300;
+  width: 60px;
+  height: 37px;
+  padding: 4px;
+  border: $border;
+  @media screen and (max-width: 500px) {
+    background-color: $primary-color;
+    border: none;
+    width: 40px;
+    svg {
+      fill: $main-bg !important;
+    }
+  }
+
+  svg {
+    fill: $gray100;
+    height: 100%;
+    width: 100%;
+  }
+}
