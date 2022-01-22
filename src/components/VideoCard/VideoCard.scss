@@ -4,13 +4,13 @@
   width: 100%;
   display: flex;
   flex-direction: row;
+  cursor: pointer;
   .video-card__thumbnail-container {
     position: relative;
     min-width: 260px;
     height: 170px;
     overflow: hidden;
     margin-right: 15px;
-    cursor: pointer;
     @media screen and (max-width: 500px) {
       min-width: 220px;
     }

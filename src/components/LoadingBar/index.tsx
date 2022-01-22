@@ -1,6 +1,10 @@
+import useGetContent from 'hooks/useGetContent';
+import { useEffect } from 'react';
 import './LoadingBar.scss';
 
 const LoadingBar = () => {
+  const { loading } = useGetContent();
+
   const elem = document.getElementById('bar') as HTMLElement | null;
 
   const increaseBar = () => {
@@ -16,7 +20,9 @@ const LoadingBar = () => {
       }
     }
   };
-  increaseBar();
+  useEffect(() => {
+    if (loading) increaseBar();
+  }, [loading]);
 
   return (
     <div className="progress">

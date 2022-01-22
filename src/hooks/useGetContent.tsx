@@ -20,9 +20,7 @@ const useGetContent = () => {
   // https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${query}&key=${key}
   useEffect(() => {
     setLoading(true);
-    fetch(
-      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${query}&key=${key}`
-    )
+    fetch(`https://youtubeResults=25&q=${query}&key=${key}`)
       .then(response => response.json())
       .then(result => {
         setLoading(false);
