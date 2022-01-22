@@ -1,24 +1,34 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { AiOutlineSearch, AiOutlineClose } from 'react-icons/ai';
 import { useSearchParams } from 'react-router-dom';
-import { useScreenWidth } from '../../hooks/useScreenWidth';
+// import useGetContent from '../../hooks/useGetContent';
+import { useScreenWidth } from 'hooks/useScreenWidth';
 
 import './Input.scss';
 
 const InputSearch = () => {
   const inputRef = useRef<HTMLInputElement>(null);
 
+  // const { setQuery } = useGetContent();
+
   const [showInputMobile, setShowInputMobile] = useState(false);
   const [searchValue, setSearchValue] = useState<string | undefined>('');
-  const onClearInput = useCallback(() => setSearchValue(''), []);
+
   const screenWidth = useScreenWidth();
 
   const [searchParams, setSearchParams] = useSearchParams();
+
+  console.log(searchValue);
 
   useEffect(
     () => setSearchValue(searchParams.get('query')?.toString()),
     [searchParams]
   );
+
+  const onClearInput = useCallback(() => {
+    setSearchValue('');
+    setSearchParams({ query: '' });
+  }, [setSearchParams]);
 
   const onSubmit = useCallback(
     e => {
@@ -32,6 +42,8 @@ const InputSearch = () => {
     },
     [screenWidth, searchValue, setSearchParams]
   );
+
+  console.log(searchValue);
 
   return (
     <form onSubmit={onSubmit} className="search-controllers">
@@ -48,7 +60,6 @@ const InputSearch = () => {
               type="text"
               ref={inputRef}
               placeholder="Search"
-              width="10px"
               onChange={e => setSearchValue(e.target.value)}
               value={searchValue}
             />
@@ -59,7 +70,8 @@ const InputSearch = () => {
             type="text"
             ref={inputRef}
             placeholder="Search"
-            // value={searchParams.get('query')}
+            onChange={e => setSearchValue(e.target.value)}
+            value={searchValue}
           />
         )}
 

@@ -1,6 +1,6 @@
-import { useScreenWidth } from '../../hooks/useScreenWidth';
-import youtube from '../../images/logo.webp';
-import youtubeMob from '../../images/logoMob.png';
+import { useScreenWidth } from 'hooks/useScreenWidth';
+import youtube from 'images/logo.webp';
+import youtubeMob from 'images/logoMob.png';
 
 import './Logo.scss';
 

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
-// const key = 'AIzaSyC2WYPxHB1btApokVGS6wDXEX0CaH1R2pw';
-// https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${query}&key=${key}
+const key = 'AIzaSyC2WYPxHB1btApokVGS6wDXEX0CaH1R2pw';
 
 type TypeData = {
   pageInfo: {
@@ -10,22 +10,24 @@ type TypeData = {
   items: [];
 };
 
-// type props = {
-//   query: string;
-// };
-
 const useGetContent = () => {
   const [data, setData] = useState<TypeData>();
   const [loading, setLoading] = useState(false);
+  const [searchParams] = useSearchParams();
 
+  const query = useMemo(() => searchParams.get('query'), [searchParams]);
+
+  // https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${query}&key=${key}
   useEffect(() => {
     setLoading(true);
-    fetch(`https://jsonplaceholder.typicode.com/todos`)
+    fetch(`https://youtubpet&maxResults=25&q=${query}&key=${key}`)
       .then(response => response.json())
-      .then(result => setData(result));
-  }, [loading]);
-
-  console.log(data);
+      .then(result => {
+        setLoading(false);
+        setData(result);
+      });
+    setLoading(false);
+  }, [loading, query]);
 
   const resultLength = useMemo(
     () => data?.pageInfo?.totalResults,
