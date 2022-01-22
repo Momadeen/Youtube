@@ -7,13 +7,13 @@ import VideoCard from '../../components/VideoCard';
 import useGetContent from '../../hooks/useGetContent';
 import './SearchPage.scss';
 
-type Item = {
-  id: {
-    channelId?: string;
-    videoId?: string;
-    playlistId?: string;
-  };
-};
+// type Item = {
+//   id: {
+//     channelId?: string;
+//     videoId?: string;
+//     playlistId?: string;
+//   };
+// };
 
 const Search = () => {
   const { items } = useGetContent();
@@ -21,7 +21,17 @@ const Search = () => {
   return (
     <div className="screens">
       <div className="content-container">
-        {items?.map((item: Item) =>
+        <VideoCard />
+        <VideoCard />
+        <VideoCard />
+        <VideoCard />
+        <VideoCard />
+        <ChannelCard />
+        <ChannelCard />
+        <ChannelCard />
+        <PlaylistCard />
+
+        {/* {items?.map((item: Item) =>
           item?.id?.channelId ? (
             <ChannelCard />
           ) : item?.id?.videoId ? (
@@ -29,7 +39,7 @@ const Search = () => {
           ) : item?.id?.playlistId ? (
             <PlaylistCard />
           ) : null
-        )}
+        )} */}
       </div>
     </div>
   );

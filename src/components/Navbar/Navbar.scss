@@ -8,9 +8,12 @@
   display: flex;
   justify-content: center;
   background-color: $main-bg;
+  position: fixed;
+  z-index: 100;
 
   @media screen and (max-width: 500px) {
     background-color: $primary-color;
+    position: relative;
   }
 
   .navbar__container {
