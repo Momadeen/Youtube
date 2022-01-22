@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 
 // const key = 'AIzaSyC2WYPxHB1btApokVGS6wDXEX0CaH1R2pw';
-// https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=pewdiepie&key=${key}
+// https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${query}&key=${key}
 
 type TypeData = {
   pageInfo: {
@@ -9,6 +9,10 @@ type TypeData = {
   };
   items: [];
 };
+
+// type props = {
+//   query: string;
+// };
 
 const useGetContent = () => {
   const [data, setData] = useState<TypeData>();

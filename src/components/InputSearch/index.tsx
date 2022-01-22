@@ -1,26 +1,40 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { AiOutlineSearch, AiOutlineClose } from 'react-icons/ai';
+import { useSearchParams } from 'react-router-dom';
 import { useScreenWidth } from '../../hooks/useScreenWidth';
 
 import './Input.scss';
 
 const InputSearch = () => {
+  const inputRef = useRef<HTMLInputElement>(null);
+
   const [showInputMobile, setShowInputMobile] = useState(false);
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState<string | undefined>('');
   const onClearInput = useCallback(() => setSearchValue(''), []);
   const screenWidth = useScreenWidth();
 
-  const inputRef = useRef<HTMLInputElement>(null);
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const onSubmit = useCallback(() => {
-    if (screenWidth <= 500 && searchValue === '') {
-      setShowInputMobile(true);
-      inputRef?.current?.focus();
-    }
-  }, [screenWidth, searchValue]);
+  useEffect(
+    () => setSearchValue(searchParams.get('query')?.toString()),
+    [searchParams]
+  );
+
+  const onSubmit = useCallback(
+    e => {
+      e.preventDefault();
+
+      if (screenWidth <= 500 && searchValue === '') {
+        setShowInputMobile(true);
+        inputRef?.current?.focus();
+      }
+      setSearchParams({ query: e?.target[0]?.value });
+    },
+    [screenWidth, searchValue, setSearchParams]
+  );
 
   return (
-    <div className="search-controllers">
+    <form onSubmit={onSubmit} className="search-controllers">
       <div
         className="search-controllers__input-container"
         style={{
@@ -45,8 +59,7 @@ const InputSearch = () => {
             type="text"
             ref={inputRef}
             placeholder="Search"
-            onChange={e => setSearchValue(e.target.value)}
-            value={searchValue}
+            // value={searchParams.get('query')}
           />
         )}
 
@@ -57,10 +70,10 @@ const InputSearch = () => {
           />
         ) : null}
       </div>
-      <div className="search-controllers__search-icon">
-        <AiOutlineSearch onClick={onSubmit} />
-      </div>
-    </div>
+      <button type="submit" className="search-controllers__search-button">
+        <AiOutlineSearch />
+      </button>
+    </form>
   );
 };
 

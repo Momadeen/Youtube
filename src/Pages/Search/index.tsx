@@ -1,5 +1,3 @@
-// import { useSearchParams } from 'react-router-dom';
-
 // import { Spinner } from '../../components/Spinner';
 import ChannelCard from '../../components/ChannelCard';
 import { Divider } from '../../components/Divider';
@@ -20,6 +18,7 @@ import './SearchPage.scss';
 const Search = () => {
   const { items } = useGetContent();
   console.log(items);
+
   return (
     <div className="screens search-page">
       <Filter />
@@ -50,9 +49,3 @@ const Search = () => {
 };
 
 export default Search;
-
-// const queryString = '?query=dsasad';
-
-// const [searchParams, setSearchParams] = useSearchParams();
-
-// console.log(searchParams);
