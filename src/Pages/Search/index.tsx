@@ -2,6 +2,8 @@
 
 // import { Spinner } from '../../components/Spinner';
 import ChannelCard from '../../components/ChannelCard';
+import { Divider } from '../../components/Divider';
+import Filter from '../../components/Filter';
 import PlaylistCard from '../../components/PlaylistCard';
 import VideoCard from '../../components/VideoCard';
 import useGetContent from '../../hooks/useGetContent';
@@ -19,8 +21,10 @@ const Search = () => {
   const { items } = useGetContent();
   console.log(items);
   return (
-    <div className="screens">
-      <div className="content-container">
+    <div className="screens search-page">
+      <Filter />
+      <Divider />
+      <div className="search-page__content-container">
         <VideoCard />
         <VideoCard />
         <VideoCard />

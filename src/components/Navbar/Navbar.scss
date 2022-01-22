@@ -1,19 +1,25 @@
 @import '../../styles/colors';
 
-.navbar {
+.navbar-layout {
   width: 100%;
-  box-shadow: $shadow;
-  padding: 10px 0;
-  background-color: white;
-  display: flex;
-  justify-content: center;
   background-color: $main-bg;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: $shadow;
+  align-items: center;
   position: fixed;
   z-index: 100;
+}
+.navbar {
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
 
   @media screen and (max-width: 500px) {
     background-color: $primary-color;
     position: relative;
+    top: 0px;
   }
 
   .navbar__container {

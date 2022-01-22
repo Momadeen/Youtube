@@ -1,0 +1,25 @@
+@import '../../styles/colors';
+
+.filter {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin: 20px 0;
+  align-items: center;
+  h4 {
+    color: $main-text;
+    font-weight: 500;
+  }
+  .filter__filter-icon-container {
+    display: flex;
+    align-items: center;
+    p {
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: $gray100;
+    }
+    svg {
+      fill: $gray100;
+    }
+  }
+}

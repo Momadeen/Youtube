@@ -1,0 +1,15 @@
+@import '../../styles/colors';
+
+.progress {
+  width: 100%;
+  min-height: 2px;
+  background: $gray200;
+  position: relative;
+  .progress__bar {
+    background: $primary-color;
+    width: 0%;
+    position: absolute;
+    top: 0;
+    height: 100%;
+  }
+}

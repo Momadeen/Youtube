@@ -6,6 +6,7 @@
   background-color: $main-bg;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 
   .layout__container {
       display: flex;

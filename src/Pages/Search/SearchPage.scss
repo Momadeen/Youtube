@@ -1,9 +1,15 @@
-.content-container {
+@import '../../styles/colors';
+
+.search-page {
+  margin-top: 90px;
+  @media screen and (max-width: 500px) {
+    margin-top: 0;
+  }
+
+}
+
+.search-page__content-container {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-top: 90px;
-  @media screen and (max-width: 500px) {
-      margin-top: 0;
-  }
 }
