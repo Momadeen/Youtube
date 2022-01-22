@@ -6,7 +6,6 @@ import './Logo.scss';
 
 const Logo = () => {
   const screenWidth = useScreenWidth();
-  console.log(screenWidth);
   return (
     <div className="logo">
       <img src={screenWidth > 500 ? youtube : youtubeMob} alt="logo" />

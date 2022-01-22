@@ -6,7 +6,13 @@
     "prettier",
     "plugin:import/typescript"
   ],
-  "plugins": ["@typescript-eslint", "react", "prettier", "react-hooks"],
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "prettier",
+    "react-hooks",
+    "@emotion"
+  ],
   "parserOptions": {
     "ecmaVersion": 2020,
     "sourceType": "module",

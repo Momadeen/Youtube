@@ -1,18 +1,39 @@
 // import { useSearchParams } from 'react-router-dom';
 
+// import { Spinner } from '../../components/Spinner';
 import ChannelCard from '../../components/ChannelCard';
 import PlaylistCard from '../../components/PlaylistCard';
 import VideoCard from '../../components/VideoCard';
+import useGetContent from '../../hooks/useGetContent';
+import './SearchPage.scss';
 
-const Search = () => (
-  <div>
+type Item = {
+  id: {
+    channelId?: string;
+    videoId?: string;
+    playlistId?: string;
+  };
+};
+
+const Search = () => {
+  const { items } = useGetContent();
+  console.log(items);
+  return (
     <div className="screens">
-      <VideoCard />
-      <ChannelCard />
-      <PlaylistCard />
+      <div className="content-container">
+        {items?.map((item: Item) =>
+          item?.id?.channelId ? (
+            <ChannelCard />
+          ) : item?.id?.videoId ? (
+            <VideoCard />
+          ) : item?.id?.playlistId ? (
+            <PlaylistCard />
+          ) : null
+        )}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Search;
 

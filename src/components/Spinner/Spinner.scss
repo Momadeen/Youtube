@@ -1,0 +1,12 @@
+@import '../../styles/colors';
+
+.spinner-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  p {
+    color: $gray100;
+  }
+}
