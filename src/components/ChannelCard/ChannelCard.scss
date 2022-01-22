@@ -42,13 +42,21 @@
     flex-direction: row;
     gap: 10px;
 
-    h5 {
+    @media screen and (max-width: 500px) {
+      flex-direction: column;
+    }
+
+    .channel-card__videos-count,
+    .channel-card__sub-count {
       color: $gray100;
       font-weight: 400;
+      font-size: 1rem;
 
-      &::after {
-        content: '•';
-        margin-left: 5px;
+      &:not(:last-child) {
+        &::after {
+          content: '•';
+          margin-left: 5px;
+        }
       }
     }
   }
@@ -68,4 +76,3 @@
     }
   }
 }
-

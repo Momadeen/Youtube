@@ -35,6 +35,8 @@ const InputSearch = () => {
       }
       if (e?.target[0]?.value !== '') {
         setSearchParams({ query: e?.target[0]?.value });
+      } else {
+        inputRef?.current?.focus();
       }
     },
     [screenWidth, searchValue, setSearchParams]

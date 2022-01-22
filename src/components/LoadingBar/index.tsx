@@ -18,6 +18,7 @@ const LoadingBar = () => {
 
         elem?.setAttribute('style', `width: ${width}%;`);
       }
+      if (width === 100) elem?.setAttribute('style', `display: none`);
     }
   };
   useEffect(() => {

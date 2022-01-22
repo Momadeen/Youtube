@@ -13,14 +13,15 @@ type Item = {
     videoId?: string;
     playlistId?: string;
   };
-  channelTitle: string;
-  publishedAt: string;
+
   snippet: {
     title: string;
     description: string;
+    channelTitle: string;
+    publishedAt: string;
     thumbnail: string;
     thumbnails: {
-      default: {
+      medium: {
         url: string;
       };
     };
@@ -41,30 +42,36 @@ const Search = () => {
           <Filter resultLength={resultLength} />
           <Divider />
           <div className="search-page__content-container">
-            {items?.map((item: Item) =>
-              item?.id?.channelId ? (
-                <ChannelCard
-                  channelTitle={item?.channelTitle}
-                  title={item?.snippet?.title}
-                  description={item?.snippet?.description}
-                  thumbnail={item?.snippet?.thumbnails?.default?.url}
-                />
-              ) : item?.id?.videoId ? (
-                <VideoCard
-                  publishedAt={item?.publishedAt}
-                  channelTitle={item?.channelTitle}
-                  title={item?.snippet?.title}
-                  description={item?.snippet?.description}
-                  thumbnail={item?.snippet?.thumbnails?.default?.url}
-                />
-              ) : item?.id?.playlistId ? (
-                <PlaylistCard
-                  channelTitle={item?.channelTitle}
-                  title={item?.snippet?.title}
-                  description={item?.snippet?.description}
-                  thumbnail={item?.snippet?.thumbnails?.default?.url}
-                />
-              ) : null
+            {items?.length ? (
+              items?.map((item: Item) =>
+                item?.id?.channelId ? (
+                  <ChannelCard
+                    channelTitle={item?.snippet?.channelTitle}
+                    title={item?.snippet?.title}
+                    description={item?.snippet?.description}
+                    thumbnail={item?.snippet?.thumbnails?.medium?.url}
+                  />
+                ) : item?.id?.videoId ? (
+                  <VideoCard
+                    publishedAt={item?.snippet?.publishedAt}
+                    channelTitle={item?.snippet?.channelTitle}
+                    title={item?.snippet?.title}
+                    description={item?.snippet?.description}
+                    thumbnail={item?.snippet?.thumbnails?.medium?.url}
+                  />
+                ) : item?.id?.playlistId ? (
+                  <PlaylistCard
+                    channelTitle={item?.snippet?.channelTitle}
+                    title={item?.snippet?.title}
+                    description={item?.snippet?.description}
+                    thumbnail={item?.snippet?.thumbnails?.medium?.url}
+                  />
+                ) : null
+              )
+            ) : (
+              <p className="discover-msg">
+                Discover more Videos, Channels and Playlists.
+              </p>
             )}
           </div>
         </>

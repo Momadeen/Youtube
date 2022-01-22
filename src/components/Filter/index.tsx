@@ -20,7 +20,7 @@ const Filter = ({ resultLength }: Props) => {
       ) : (
         <div className="filter__filter-desk">
           <h4 className="filter__filter-result">
-            About {resultLength} results
+            About {resultLength || 0} results
           </h4>
           <div className="filter__filter-icon-container">
             <BsFilter size={25} style={{ marginRight: '20px' }} />

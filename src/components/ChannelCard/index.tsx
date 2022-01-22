@@ -26,9 +26,10 @@ const ChannelCard = ({
       />
     </div>
     <div className="channel-card__meta">
-      <h2 className="channel-card__title">{channelTitle}</h2>
+      <h2 className="channel-card__title">{channelTitle || title}</h2>
       <div className="channel-card__more-details">
-        <h5>{title}</h5>
+        <p className="channel-card__videos-count">180 videos</p>
+        <p className="channel-card__sub-count">23,858 subscribers</p>
       </div>
 
       <p className="channel-card__description">{subText(description, 120)}</p>
