@@ -33,7 +33,7 @@ const Search = () => {
 
   return (
     <div className="search-page">
-      {loading ? (
+      {!loading ? (
         <div className="search-page_loading-container">
           <Spinner />
         </div>
