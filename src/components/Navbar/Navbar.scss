@@ -10,24 +10,24 @@
   align-items: center;
   position: fixed;
   z-index: 100;
-}
-.navbar {
-  padding: 10px 0;
-  display: flex;
-  justify-content: center;
-
   @media screen and (max-width: 500px) {
     background-color: $primary-color;
     position: relative;
     top: 0px;
   }
 
-  .navbar__container {
-    display: grid;
-    grid-template-columns: 1fr 5fr;
-    align-items: center;
-    @media screen and (min-width: 500px) {
-      gap: 5%;
+  .navbar {
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+
+    .navbar__container {
+      display: grid;
+      grid-template-columns: 1fr 5fr;
+      align-items: center;
+      @media screen and (min-width: 500px) {
+        gap: 5%;
+      }
     }
   }
 }

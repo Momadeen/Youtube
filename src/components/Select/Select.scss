@@ -1,0 +1,17 @@
+@import '../../styles/colors';
+
+.select {
+  box-shadow: $shadow;
+  border: $border;
+  min-width: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  gap: 10px;
+  p,svg {
+    color: $gray100;
+    font-weight: 500;
+  }
+}

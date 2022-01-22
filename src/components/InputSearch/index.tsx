@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { AiOutlineSearch, AiOutlineClose } from 'react-icons/ai';
 import { useSearchParams } from 'react-router-dom';
-// import useGetContent from '../../hooks/useGetContent';
 import { useScreenWidth } from 'hooks/useScreenWidth';
 
 import './Input.scss';
@@ -9,16 +8,12 @@ import './Input.scss';
 const InputSearch = () => {
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // const { setQuery } = useGetContent();
-
   const [showInputMobile, setShowInputMobile] = useState(false);
   const [searchValue, setSearchValue] = useState<string | undefined>('');
 
   const screenWidth = useScreenWidth();
 
   const [searchParams, setSearchParams] = useSearchParams();
-
-  console.log(searchValue);
 
   useEffect(
     () => setSearchValue(searchParams.get('query')?.toString()),
@@ -38,12 +33,12 @@ const InputSearch = () => {
         setShowInputMobile(true);
         inputRef?.current?.focus();
       }
-      setSearchParams({ query: e?.target[0]?.value });
+      if (e?.target[0]?.value !== '') {
+        setSearchParams({ query: e?.target[0]?.value });
+      }
     },
     [screenWidth, searchValue, setSearchParams]
   );
-
-  console.log(searchValue);
 
   return (
     <form onSubmit={onSubmit} className="search-controllers">

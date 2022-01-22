@@ -32,40 +32,44 @@ const Search = () => {
   console.log(items);
 
   return (
-    <div className="screens search-page">
-      <Filter resultLength={resultLength} />
-      <Divider />
-      <div className="search-page__content-container">
-        {loading ? (
+    <div className="search-page">
+      {loading ? (
+        <div className="search-page_loading-container">
           <Spinner />
-        ) : (
-          items?.map((item: Item) =>
-            item?.id?.channelId ? (
-              <ChannelCard
-                channelTitle={item?.channelTitle}
-                title={item?.snippet?.title}
-                description={item?.snippet?.description}
-                thumbnail={item?.snippet?.thumbnails?.default?.url}
-              />
-            ) : item?.id?.videoId ? (
-              <VideoCard
-                publishedAt={item?.publishedAt}
-                channelTitle={item?.channelTitle}
-                title={item?.snippet?.title}
-                description={item?.snippet?.description}
-                thumbnail={item?.snippet?.thumbnails?.default?.url}
-              />
-            ) : item?.id?.playlistId ? (
-              <PlaylistCard
-                channelTitle={item?.channelTitle}
-                title={item?.snippet?.title}
-                description={item?.snippet?.description}
-                thumbnail={item?.snippet?.thumbnails?.default?.url}
-              />
-            ) : null
-          )
-        )}
-      </div>
+        </div>
+      ) : (
+        <>
+          <Filter resultLength={resultLength} />
+          <Divider />
+          <div className="search-page__content-container">
+            {items?.map((item: Item) =>
+              item?.id?.channelId ? (
+                <ChannelCard
+                  channelTitle={item?.channelTitle}
+                  title={item?.snippet?.title}
+                  description={item?.snippet?.description}
+                  thumbnail={item?.snippet?.thumbnails?.default?.url}
+                />
+              ) : item?.id?.videoId ? (
+                <VideoCard
+                  publishedAt={item?.publishedAt}
+                  channelTitle={item?.channelTitle}
+                  title={item?.snippet?.title}
+                  description={item?.snippet?.description}
+                  thumbnail={item?.snippet?.thumbnails?.default?.url}
+                />
+              ) : item?.id?.playlistId ? (
+                <PlaylistCard
+                  channelTitle={item?.channelTitle}
+                  title={item?.snippet?.title}
+                  description={item?.snippet?.description}
+                  thumbnail={item?.snippet?.thumbnails?.default?.url}
+                />
+              ) : null
+            )}
+          </div>
+        </>
+      )}
     </div>
   );
 };
