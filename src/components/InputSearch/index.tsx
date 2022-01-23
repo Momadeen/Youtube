@@ -22,18 +22,24 @@ const InputSearch = () => {
 
   const onClearInput = useCallback(() => {
     setSearchValue('');
-    setSearchParams({ query: '' });
-  }, [setSearchParams]);
+    searchParams.set('query', '');
+  }, [searchParams]);
 
   const onSubmit = useCallback(
     e => {
       e.preventDefault();
 
-      if (screenWidth <= 500 && searchValue === '') {
+      if (
+        screenWidth <= 500 &&
+        (searchValue === '' || searchValue === undefined)
+      ) {
         setShowInputMobile(true);
         inputRef?.current?.focus();
       }
-      if (e?.target[0]?.value !== '') {
+      if (
+        e?.target[0]?.value &&
+        (e?.target[0]?.value !== '' || e?.target[0]?.value !== undefined)
+      ) {
         setSearchParams({ query: e?.target[0]?.value });
       } else {
         inputRef?.current?.focus();
@@ -60,7 +66,9 @@ const InputSearch = () => {
               onChange={e => setSearchValue(e.target.value)}
               value={searchValue}
             />
-          ) : null
+          ) : (
+            <p>{searchValue}</p>
+          )
         ) : (
           <input
             className="search-controllers__input"
@@ -72,7 +80,7 @@ const InputSearch = () => {
           />
         )}
 
-        {searchValue ? (
+        {searchValue && showInputMobile ? (
           <AiOutlineClose
             onClick={onClearInput}
             className="search-controllers__close-icon"
