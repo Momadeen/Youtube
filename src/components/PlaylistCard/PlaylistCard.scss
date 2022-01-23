@@ -8,12 +8,13 @@
   .playlist-card__thumbnail-container {
     position: relative;
     min-width: 260px;
+    width: 260px;
     height: 170px;
     overflow: hidden;
     margin-right: 15px;
-    cursor: pointer;
     @media screen and (max-width: 500px) {
-      min-width: 220px;
+      width: 200px;
+      min-width: 200px;
     }
 
     .playlist-card__thumbnail {
